@@ -1,9 +1,9 @@
-# Actor Rails
+# ServiceActor-Rails
 
 ![Tests](https://github.com/sunny/actor-rails/workflows/Tests/badge.svg)
 
-Actor Rails provides Rails support for the
-[Actor](https://github.com/sunny/actor) gem.
+ServiceActor-Rails provides Rails support for the
+[ServiceActor](https://github.com/sunny/actor) gem.
 
 ## Installation
 
