@@ -64,7 +64,7 @@ RSpec.describe ServiceActor::Rails do
       <<~SPEC_FILE
         # frozen_string_literal: true
 
-        require 'spec_helper'
+        require 'rails_helper'
 
         RSpec.describe PayOrder, type: :actor do
           describe '.call' do
@@ -110,7 +110,7 @@ RSpec.describe ServiceActor::Rails do
         <<~SPEC_FILE
           # frozen_string_literal: true
 
-          require 'spec_helper'
+          require 'rails_helper'
 
           RSpec.describe Orders::Pay, type: :actor do
             describe '.call' do
