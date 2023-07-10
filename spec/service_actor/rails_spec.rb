@@ -2,32 +2,12 @@
 
 RSpec.describe ServiceActor::Rails do
   let(:rails_new) do
+    # We can also probably `--skip-sprockets` but currently a
+    # `config.assets.quiet = true`
+
     <<~COMMAND
-      bundle exec rails new example \
-        --skip-gemfile \
-        --skip-git \
-        --skip-keeps \
-        --skip-action-mailer \
-        --skip-action-mailbox \
-        --skip-action-text \
-        --skip-active-record \
-        --skip-active-storage \
-        --skip-puma \
-        --skip-action-cable \
-        --skip-sprockets \
-        --skip-spring \
-        --skip-listen \
-        --skip-javascript \
-        --skip-turbolinks \
-        --skip-test \
-        --skip-system-test \
-        --skip-bootsnap \
-        --skip-bundle \
-        --skip-coffee \
-        --skip-yarn \
-        --skip-test-unit \
-        --skip-webpack-install \
-        --quiet
+      bundle exec rails new example --minimal
+      echo hello
     COMMAND
   end
 
@@ -75,7 +55,7 @@ RSpec.describe ServiceActor::Rails do
     end
 
     it 'creates an actor and the corresponding spec' do
-      run_command_and_stop 'bundle exec rails generate actor pay_order'
+      run_command_and_stop 'bin/rails generate actor pay_order'
 
       expect(actor_path).to be_an_existing_file
       expect(actor_path).to have_file_content(expected_actor_file)
@@ -85,7 +65,7 @@ RSpec.describe ServiceActor::Rails do
     end
 
     it 'requires a name' do
-      run_command_and_stop 'bundle exec rails generate actor'
+      run_command_and_stop 'bin/rails generate actor'
 
       expect(last_command_started.stdout)
         .to include('rails generate actor NAME')
@@ -121,7 +101,7 @@ RSpec.describe ServiceActor::Rails do
       end
 
       it 'creates an actor and the corresponding spec' do
-        run_command_and_stop 'bundle exec rails generate actor orders/pay'
+        run_command_and_stop 'bin/rails generate actor orders/pay'
 
         expect(actor_path).to be_an_existing_file
         expect(actor_path).to have_file_content(expected_actor_file)

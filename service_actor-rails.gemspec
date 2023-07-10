@@ -37,7 +37,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'service_actor'
 
   # Rails
-  spec.add_dependency 'rails', '>= 4.2'
+  spec.add_dependency 'rails', '>= 6.0'
 
   # Tests
   spec.add_development_dependency 'rspec'
