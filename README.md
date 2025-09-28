@@ -1,7 +1,5 @@
 # ServiceActor-Rails
 
-![Tests](https://github.com/sunny/actor-rails/workflows/Tests/badge.svg)
-
 ServiceActor-Rails provides Rails support for the
 [ServiceActor](https://github.com/sunny/actor) gem.
 
